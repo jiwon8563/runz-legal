@@ -1,0 +1,651 @@
+<title>RUNZ 이용약관 (초안)</title>
+<style>
+  :root {
+    --paper:      #FFFFFF;
+    --surface:    #F7F8F9;
+    --ink:        #16181D;
+    --ink-soft:   #4A515C;
+    --muted:      #767D89;
+    --rule:       #E3E6EA;
+    --rule-soft:  #EFF1F3;
+    --accent:     #D8382C;
+    --fill:       #B45309;
+    --fill-bg:    #FDF6EC;
+    --fill-rule:  #E9C89A;
+
+    --sans: 'Pretendard', 'Pretendard Variable', -apple-system, 'Apple SD Gothic Neo',
+            'Malgun Gothic', 'Noto Sans KR', system-ui, sans-serif;
+    --mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', 'Cascadia Mono',
+            Consolas, 'D2Coding', monospace;
+
+    --measure: 68ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:     #101216;
+      --surface:   #171A20;
+      --ink:       #E7EAEE;
+      --ink-soft:  #B6BDC7;
+      --muted:     #858D99;
+      --rule:      #272C34;
+      --rule-soft: #1E2229;
+      --accent:    #FF6A5C;
+      --fill:      #E0A860;
+      --fill-bg:   #1E1A14;
+      --fill-rule: #4A3A22;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:     #101216;
+    --surface:   #171A20;
+    --ink:       #E7EAEE;
+    --ink-soft:  #B6BDC7;
+    --muted:     #858D99;
+    --rule:      #272C34;
+    --rule-soft: #1E2229;
+    --accent:    #FF6A5C;
+    --fill:      #E0A860;
+    --fill-bg:   #1E1A14;
+    --fill-rule: #4A3A22;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+    display: grid;
+    grid-template-columns: 232px minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  }
+
+  .masthead {
+    grid-column: 1 / -1;
+    border-bottom: 2px solid var(--ink);
+    padding: 56px 0 20px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 20px;
+  }
+  .wordmark {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .masthead h1 {
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.022em;
+    font-weight: 780;
+    margin: 0;
+    text-wrap: balance;
+    flex: 1 1 auto;
+  }
+  .stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .rail { position: sticky; top: 24px; }
+  @media (max-width: 900px) {
+    .rail {
+      position: static;
+      margin-bottom: 40px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 18px 20px;
+    }
+  }
+  .rail h2 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  .rail ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+  .rail a {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 8px;
+    padding: 4px 0;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.45;
+    border-radius: 3px;
+  }
+  .rail a span:first-child {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    padding-top: 2px;
+  }
+  .rail a:hover { color: var(--accent); }
+  .rail a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .checklist {
+    background: var(--fill-bg);
+    border: 1px solid var(--fill-rule);
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin: 0 0 44px;
+    max-width: var(--measure);
+  }
+  .checklist h2 {
+    font-size: 15px;
+    margin: 0 0 6px;
+    font-weight: 700;
+    color: var(--fill);
+    letter-spacing: -0.01em;
+  }
+  .checklist p { margin: 0 0 14px; font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+  .checklist ul { margin: 0; padding-left: 18px; display: grid; gap: 5px; }
+  .checklist li { font-size: 14px; color: var(--ink-soft); }
+  .checklist code { font-family: var(--mono); font-size: 12.5px; color: var(--fill); }
+
+  .doc { max-width: var(--measure); }
+
+  section { margin: 0 0 48px; scroll-margin-top: 24px; }
+  section > h2 {
+    font-size: 19px;
+    font-weight: 720;
+    letter-spacing: -0.015em;
+    margin: 0 0 4px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    text-wrap: balance;
+  }
+  .artno {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+  section > h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 26px 0 8px;
+    letter-spacing: -0.008em;
+    color: var(--ink);
+  }
+  section p { margin: 0 0 14px; color: var(--ink-soft); }
+  section ul, section ol { margin: 0 0 16px; padding-left: 20px; display: grid; gap: 6px; }
+  section li { color: var(--ink-soft); }
+  section li::marker { color: var(--muted); }
+  strong { color: var(--ink); font-weight: 680; }
+
+  .fill {
+    background: var(--fill-bg);
+    color: var(--fill);
+    font-family: var(--mono);
+    font-size: 0.86em;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    border-bottom: 2px solid var(--fill-rule);
+    white-space: nowrap;
+  }
+
+  .tablewrap { overflow-x: auto; margin: 0 0 20px; border: 1px solid var(--rule); border-radius: 4px; }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td { color: var(--ink-soft); line-height: 1.6; }
+  td:first-child { color: var(--ink); font-weight: 620; }
+
+  .notice {
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    padding: 16px 20px;
+    margin: 0 0 20px;
+    border-radius: 0 4px 4px 0;
+  }
+  .notice p { margin: 0; font-size: 14.5px; }
+  .notice p + p { margin-top: 10px; }
+  .notice ul { margin: 10px 0 0; }
+  .notice-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  footer {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--rule);
+    margin-top: 24px;
+    padding-top: 20px;
+    font-size: 13px;
+    color: var(--muted);
+    max-width: var(--measure);
+  }
+  footer p { margin: 0 0 8px; }
+  footer code, section code { font-family: var(--mono); font-size: 0.9em; }
+  a { color: var(--accent); }
+</style>
+
+<div class="shell">
+  <header class="masthead">
+    <span class="wordmark">RUNZ</span>
+    <h1>이용약관</h1>
+    <span class="stamp">DRAFT · 2026-09-07 · 시행 전</span>
+  </header>
+
+  <nav class="rail" aria-label="조항 목차">
+    <h2>목차</h2>
+    <ol>
+      <li><a href="#a1"><span>01</span><span>목적</span></a></li>
+      <li><a href="#a2"><span>02</span><span>용어의 정의</span></a></li>
+      <li><a href="#a3"><span>03</span><span>약관의 효력과 변경</span></a></li>
+      <li><a href="#a4"><span>04</span><span>회원가입과 계정</span></a></li>
+      <li><a href="#a5"><span>05</span><span>서비스의 내용</span></a></li>
+      <li><a href="#a6"><span>06</span><span>안전에 관한 고지</span></a></li>
+      <li><a href="#a7"><span>07</span><span>이용자의 의무</span></a></li>
+      <li><a href="#a8"><span>08</span><span>기록의 측정과 완주 판정</span></a></li>
+      <li><a href="#a9"><span>09</span><span>경험치 · 레벨 · 등급</span></a></li>
+      <li><a href="#a10"><span>10</span><span>게시물의 관리</span></a></li>
+      <li><a href="#a11"><span>11</span><span>서비스의 변경과 중단</span></a></li>
+      <li><a href="#a12"><span>12</span><span>이용 제한과 계약 해지</span></a></li>
+      <li><a href="#a13"><span>13</span><span>회사의 책임 제한</span></a></li>
+      <li><a href="#a14"><span>14</span><span>준거법과 분쟁 해결</span></a></li>
+      <li><a href="#a15"><span>15</span><span>위치기반서비스</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="doc">
+    <div class="checklist">
+      <h2>시행 전 남은 항목</h2>
+      <p>
+        사업자 정보 · 문의처 · 관할 법원 · 시행일은 2026년 9월 16일에 모두 채웠고,
+        위치정보법 제19조가 요구하는 제15조(위치기반서비스)를 신설했습니다.
+        시행 전 아래가 남아 있습니다.
+      </p>
+      <ul>
+        <li><strong>법률 검토</strong> — 특히 <code>제6조(안전)</code>와 <code>제13조(책임 제한)</code>는 러닝 서비스 특성상 사고 시 실제로 다투어지는 조항입니다</li>
+        <li><strong>앱 내 동의 절차</strong> — 위치정보법은 이 약관을 명시한 뒤 이용자의 동의를 받도록 정하고 있습니다</li>
+      </ul>
+    </div>
+
+    <section id="a1">
+      <h2><span class="artno">제 1 조</span>목적</h2>
+      <p>
+        이 약관은 참새상회(이하 "회사")가 제공하는 러닝 기록 · 언택트 레이스
+        서비스 RUNZ(이하 "서비스")의 이용 조건과 절차, 회사와 이용자의 권리 · 의무를 정하는 것을 목적으로 합니다.
+      </p>
+    </section>
+
+    <section id="a2">
+      <h2><span class="artno">제 2 조</span>용어의 정의</h2>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>용어</th><th>뜻</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>이용자</td><td>이 약관에 동의하고 서비스를 이용하는 사람</td></tr>
+            <tr><td>자유 러닝</td><td>정해진 코스 없이 이용자가 원하는 곳을 달리고 기록하는 기능</td></tr>
+            <tr><td>레이스</td><td>회사가 등록한 코스를 이용자가 각자 원하는 시간에 달리고, 서버가 GPS 기록으로 완주 여부를 판정하는 비대면 대회</td></tr>
+            <tr><td>런스팟</td><td>이용자가 신청하고 회사가 승인한 러닝 코스 정보</td></tr>
+            <tr><td>런타임</td><td>러닝 사진과 기록을 다른 이용자와 나누는 게시 공간</td></tr>
+            <tr><td>챌린지</td><td>일정 기간 동안 주어진 목표를 달성하면 경험치를 받는 기능</td></tr>
+            <tr><td>완주 인정</td><td>서버가 GPS 기록을 검증해 레이스를 정상적으로 완주했다고 판정한 상태</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="a3">
+      <h2><span class="artno">제 3 조</span>약관의 효력과 변경</h2>
+      <p>
+        이 약관은 서비스 화면에 게시함으로써 효력이 발생합니다. 회사는 관련 법령을 위반하지 않는
+        범위에서 약관을 변경할 수 있습니다.
+      </p>
+      <p>
+        약관을 변경할 때에는 시행 7일 전부터 앱 내 공지로 안내하며, 이용자에게 불리하게 변경하는
+        경우에는 시행 30일 전부터 안내합니다. 변경된 약관의 시행일 이후에도 서비스를 계속 이용하면
+        변경에 동의한 것으로 봅니다. 동의하지 않는 이용자는 이용 계약을 해지할 수 있습니다.
+      </p>
+      <p>시행일: 2026년 9월 16일</p>
+    </section>
+
+    <section id="a4">
+      <h2><span class="artno">제 4 조</span>회원가입과 계정</h2>
+      <ul>
+        <li>회원가입은 카카오 · 구글 · 네이버 · 애플 계정으로만 할 수 있으며, 별도의 비밀번호를 만들지 않습니다.</li>
+        <li>가입 시 닉네임과 활동 지역을 입력해야 하며, 닉네임은 다른 이용자와 중복될 수 없습니다.</li>
+        <li>만 14세 미만은 서비스에 가입할 수 없습니다.</li>
+        <li>하나의 사람이 여러 계정을 만들어 순위나 보상을 중복으로 취득해서는 안 됩니다.</li>
+        <li>계정은 다른 사람에게 양도하거나 빌려줄 수 없습니다.</li>
+      </ul>
+      <p>
+        이용자는 설정 화면에서 언제든지 회원 탈퇴할 수 있습니다. 탈퇴하면 러닝 기록을 포함한
+        모든 데이터가 즉시 삭제되고 복구할 수 없습니다. 자세한 내용은 개인정보처리방침 제8조를 확인해 주십시오.
+      </p>
+    </section>
+
+    <section id="a5">
+      <h2><span class="artno">제 5 조</span>서비스의 내용</h2>
+      <p>회사는 다음 기능을 제공합니다. 모든 기능은 무료이며, 참가비나 이용료를 받지 않습니다.</p>
+      <ul>
+        <li><strong>자유 러닝</strong> — GPS로 경로 · 거리 · 시간 · 페이스를 기록</li>
+        <li><strong>레이스</strong> — 등록된 코스 참가, 실시간 방향 안내와 음성 안내, 완주 판정과 순위</li>
+        <li><strong>런스팟</strong> — 러닝 코스 정보 조회와 신청</li>
+        <li><strong>런타임</strong> — 사진과 기록을 올리고 다른 이용자와 소통</li>
+        <li><strong>챌린지 · 등급</strong> — 기간별 목표 달성과 경험치 · 레벨 · 러너 등급</li>
+      </ul>
+    </section>
+
+    <section id="a6">
+      <h2><span class="artno">제 6 조</span>안전에 관한 고지</h2>
+      <div class="notice">
+        <span class="notice-label">가장 중요한 조항입니다</span>
+        <p>
+          <strong>서비스는 안전을 보장하지 않습니다.</strong> 달리기는 공공도로 · 하천변 · 산길 등
+          통제되지 않은 실제 환경에서 이루어지며, 서비스는 그 환경을 관리하거나 통제하지 않습니다.
+          모든 러닝은 <strong>이용자 본인의 판단과 책임</strong>으로 이루어집니다.
+        </p>
+      </div>
+      <p>이용자는 러닝 중 다음 사항을 반드시 지켜 주십시오.</p>
+      <ul>
+        <li>도로교통법을 비롯한 관계 법령과 현장의 통행 규칙을 지킬 것</li>
+        <li>화면이나 음성 안내보다 <strong>실제 도로 상황과 신호를 우선</strong>할 것</li>
+        <li>차량 · 자전거 · 보행자와의 안전 거리를 확보할 것</li>
+        <li>야간이나 악천후에는 시야 확보와 반사 장비 등 필요한 조치를 취할 것</li>
+        <li>몸 상태가 좋지 않거나 통증이 있으면 즉시 중단할 것</li>
+        <li>지병이 있거나 장시간 운동 경험이 없는 경우 사전에 의료 전문가와 상담할 것</li>
+      </ul>
+
+      <h3>방향 안내에 관하여</h3>
+      <p>
+        레이스에서 제공하는 방향 안내와 음성 안내는 <strong>참고용 보조 기능</strong>입니다. GPS 신호는
+        건물 · 터널 · 나무 · 날씨의 영향을 받아 실제 위치와 다를 수 있고, 등록된 코스 정보가 현장의 공사 ·
+        통제 · 변경 사항을 반영하지 못할 수 있습니다.
+      </p>
+      <p>
+        안내를 따르다 발생한 사고나 손해에 대해 회사는 책임을 지지 않습니다. 안내와 실제 지형이 다르면
+        <strong>항상 실제 지형과 자신의 판단을 우선</strong>해 주십시오.
+      </p>
+    </section>
+
+    <section id="a7">
+      <h2><span class="artno">제 7 조</span>이용자의 의무</h2>
+      <p>이용자는 다음 행위를 해서는 안 됩니다.</p>
+
+      <h3>1. 기록 조작</h3>
+      <ul>
+        <li>모의 위치(가짜 GPS) 앱이나 기기를 사용해 위치를 조작하는 행위</li>
+        <li>자전거 · 자동차 · 오토바이 등 이동 수단을 이용하고 달린 것처럼 기록하는 행위</li>
+        <li>앱을 거치지 않고 서버에 직접 기록을 만들거나 수정하는 행위</li>
+        <li>코스의 일부를 건너뛰거나 다른 경로로 이동한 뒤 완주를 주장하는 행위</li>
+        <li>다른 사람이 대신 달린 기록을 자신의 기록으로 등록하는 행위</li>
+      </ul>
+
+      <h3>2. 게시물</h3>
+      <ul>
+        <li>타인의 초상 · 저작물을 권리자의 동의 없이 올리는 행위</li>
+        <li>욕설 · 혐오 표현 · 음란물 · 광고성 게시물을 올리는 행위</li>
+        <li>타인을 사칭하거나 허위 사실을 유포하는 행위</li>
+      </ul>
+
+      <h3>3. 서비스 운영 방해</h3>
+      <ul>
+        <li>자동화 도구로 대량 요청을 보내거나 서버에 과도한 부하를 주는 행위</li>
+        <li>서비스의 취약점을 이용해 정상적이지 않은 방법으로 기능을 이용하는 행위</li>
+        <li>다른 이용자의 계정이나 데이터에 무단으로 접근하는 행위</li>
+      </ul>
+    </section>
+
+    <section id="a8">
+      <h2><span class="artno">제 8 조</span>기록의 측정과 완주 판정</h2>
+
+      <h3>1. 측정의 한계</h3>
+      <p>
+        거리 · 시간 · 페이스 · 고도는 기기의 GPS와 센서로 측정한 <strong>추정값</strong>이며 오차가 있습니다.
+        신호가 약한 구간에서는 실제와 차이가 커질 수 있습니다. 회사는 측정값의 절대적 정확성을
+        보장하지 않습니다.
+      </p>
+
+      <h3>2. 완주 판정</h3>
+      <p>레이스 완주는 이용자가 제출한 GPS 기록을 서버가 다시 계산해 판정하며, 결과는 다음 중 하나입니다.</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>결과</th><th>의미</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>완주 인정</td><td>기준을 모두 충족해 자동으로 인정된 상태. 순위와 경험치가 부여됩니다.</td></tr>
+            <tr><td>검토 중</td><td>자동으로 판단하기 어려워 운영자의 확인이 필요한 상태</td></tr>
+            <tr><td>완주 불인정</td><td>기준을 충족하지 못한 상태</td></tr>
+            <tr><td>완주 실패</td><td>이용자가 도중에 포기한 상태. 그 시점까지의 기록은 남습니다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        판정 기준은 코스 이탈 여부, GPS 기록의 연속성, 이동 거리, 제한 시간, 물리적으로 가능한
+        속도 범위 등을 종합해 정합니다. 부정 이용을 막기 위해 구체적인 기준값은 공개하지 않습니다.
+      </p>
+
+      <h3>3. 이의신청</h3>
+      <p>
+        완주가 인정되지 않은 경우 앱에서 이의신청을 할 수 있으며, 운영자가 GPS 기록과 첨부한 증빙을
+        확인해 재판정합니다. 재판정 결과는 최종입니다.
+      </p>
+      <p>
+        회사는 부정한 방법으로 취득한 것으로 확인된 기록 · 순위 · 경험치를 사후에 취소하거나 조정할 수 있습니다.
+      </p>
+    </section>
+
+    <section id="a9">
+      <h2><span class="artno">제 9 조</span>경험치 · 레벨 · 등급</h2>
+      <p>
+        서비스는 러닝 기록과 챌린지 달성에 따라 경험치를 부여하고, 누적 경험치로 레벨과 러너 등급이 결정됩니다.
+      </p>
+      <div class="notice">
+        <p>
+          <strong>경험치 · 레벨 · 등급 · 순위는 서비스 안에서만 의미를 가지며 재산적 가치가 없습니다.</strong>
+          현금이나 물품으로 교환할 수 없고, 사고팔거나 다른 이용자에게 넘길 수 없습니다.
+          회원 탈퇴 시 소멸하며 복구되지 않습니다.
+        </p>
+      </div>
+      <p>
+        회사는 서비스 운영상 필요한 경우 경험치 지급 기준 · 레벨 구간 · 등급 조건 · 챌린지 구성을
+        변경할 수 있습니다. 이미 획득한 레벨과 등급은 기준 변경으로 낮아지지 않습니다.
+      </p>
+    </section>
+
+    <section id="a10">
+      <h2><span class="artno">제 10 조</span>게시물의 관리</h2>
+      <p>
+        이용자가 올린 게시물의 저작권은 이용자에게 있습니다. 회사는 서비스를 운영하고 화면에
+        표시하는 데 필요한 범위에서만 게시물을 이용합니다.
+      </p>
+
+      <h3>1. 자동 삭제</h3>
+      <ul>
+        <li>게시물은 작성 후 <strong>24시간이 지나면</strong> 다른 이용자의 피드에서 보이지 않습니다.</li>
+        <li>게시물은 작성 후 <strong>1개월이 지나면</strong> 사진을 포함해 자동으로 삭제됩니다.</li>
+      </ul>
+      <p>보관이 필요한 사진은 이용자가 직접 기기에 저장해 두시기 바랍니다.</p>
+
+      <h3>2. 러닝 경로의 공개</h3>
+      <p>
+        게시물에 러닝 기록을 연결하면 그 러닝의 경로가 게시물을 보는 사람에게 공개됩니다.
+        출발 지점과 도착 지점의 주변 구간은 자동으로 가려지지만, 그 밖의 경로는 그대로 공개되므로
+        공개를 원하지 않는 러닝은 연결하지 마십시오.
+      </p>
+
+      <h3>3. 회사의 조치</h3>
+      <p>
+        제7조를 위반한 게시물은 사전 통지 없이 삭제하거나 노출을 제한할 수 있습니다. 이용자는
+        다른 이용자의 게시물을 신고할 수 있습니다.
+      </p>
+    </section>
+
+    <section id="a11">
+      <h2><span class="artno">제 11 조</span>서비스의 변경과 중단</h2>
+      <p>
+        회사는 서비스의 내용을 변경하거나 일부 기능을 중단할 수 있습니다. 중요한 변경은 사전에
+        앱 내 공지로 안내합니다.
+      </p>
+      <p>
+        설비 점검 · 교체 · 고장, 통신 두절, 천재지변 등 부득이한 사유가 있는 경우 서비스 제공을
+        일시적으로 중단할 수 있으며, 이 경우 사전 안내가 어려울 수 있습니다.
+      </p>
+    </section>
+
+    <section id="a12">
+      <h2><span class="artno">제 12 조</span>이용 제한과 계약 해지</h2>
+      <p>회사는 이용자가 제7조를 위반한 경우 위반 정도에 따라 다음 조치를 할 수 있습니다.</p>
+      <ul>
+        <li>해당 기록 · 순위 · 경험치의 취소</li>
+        <li>레이스 참가 제한</li>
+        <li>계정 이용 정지</li>
+        <li>이용 계약 해지</li>
+      </ul>
+      <p>
+        조치를 받은 이용자는 5618563@naver.com으로 이의를 제기할 수 있으며,
+        회사는 그 사유가 타당하면 조치를 해제합니다.
+      </p>
+      <p>이용자는 언제든지 설정 화면에서 회원 탈퇴하여 이용 계약을 해지할 수 있습니다.</p>
+    </section>
+
+    <section id="a13">
+      <h2><span class="artno">제 13 조</span>회사의 책임 제한</h2>
+      <p>회사는 다음의 경우 책임을 지지 않습니다.</p>
+      <ul>
+        <li>천재지변이나 이에 준하는 불가항력으로 서비스를 제공할 수 없는 경우</li>
+        <li>이용자의 귀책사유로 서비스 이용에 장애가 생긴 경우</li>
+        <li>이용자가 러닝 중 입은 신체적 손해 — 다만 회사의 고의나 중대한 과실이 있는 경우는 제외합니다</li>
+        <li>GPS 신호의 오차나 기기 · 운영체제의 제약으로 기록이 부정확하게 측정된 경우</li>
+        <li>이용자 간에 발생한 분쟁</li>
+        <li>이용자가 게시한 내용의 신뢰성이나 정확성</li>
+      </ul>
+      <p>
+        서비스는 무료로 제공되므로, 회사는 관련 법령이 허용하는 최대한의 범위에서 책임을 제한합니다.
+        다만 회사의 고의 또는 중대한 과실로 인한 손해에 대해서는 책임을 부담합니다.
+      </p>
+    </section>
+
+    <section id="a14">
+      <h2><span class="artno">제 14 조</span>준거법과 분쟁 해결</h2>
+      <p>이 약관과 서비스 이용에 관하여는 대한민국 법을 적용합니다.</p>
+      <p>
+        서비스 이용과 관련하여 분쟁이 발생한 경우, 회사와 이용자는 원만한 해결을 위해 성실히
+        협의합니다. 협의가 이루어지지 않으면 인천지방법원을 관할 법원으로 합니다.
+      </p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>구분</th><th>내용</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>사업자명</td><td>참새상회</td></tr>
+            <tr><td>대표자</td><td>김선경</td></tr>
+            <tr><td>사업자등록번호</td><td>663-46-01278</td></tr>
+            <tr><td>주소</td><td>인천광역시 부평구 세월천로 16, 118동 1606호 (청천동, 청천푸르지오아파트)</td></tr>
+            <tr><td>전화</td><td>0502-1935-8563</td></tr>
+            <tr><td>문의</td><td>5618563@naver.com</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="a15">
+      <h2><span class="artno">제 15 조</span>위치기반서비스</h2>
+      <p>
+        이 조항은 「위치정보의 보호 및 이용 등에 관한 법률」 제19조에 따라 회사가 제공하는
+        위치기반서비스의 내용과 이용자의 권리를 정합니다. 회사의 상호 · 주소 · 전화번호는
+        제14조의 표에 기재된 바와 같습니다.
+      </p>
+
+      <p><strong>1. 위치기반서비스의 내용</strong></p>
+      <ul>
+        <li>러닝 · 레이스 중 이동 경로 기록과 거리 · 페이스 · 고도 산출</li>
+        <li>레이스의 완주 여부 판정, 코스 이탈 확인, 순위 산정</li>
+        <li>코스 방향 안내(화면 표시 및 음성 안내)</li>
+        <li>지도 표시, 활동 지역 기준의 레이스 · 코스 정보 제공</li>
+      </ul>
+
+      <p><strong>2. 개인위치정보의 이용 목적과 보유 기간</strong></p>
+      <p>
+        회사는 위 1항의 서비스를 제공하기 위한 목적으로만 개인위치정보를 이용하며,
+        해당 러닝 기록이 존재하는 동안 보유합니다. 이용자가 기록을 삭제하거나 회원 탈퇴하면
+        지체 없이 파기합니다. 회사는 개인위치정보를 제3자에게 제공하지 않으며,
+        제공이 필요한 경우 미리 그 사실을 알리고 동의를 받습니다.
+      </p>
+
+      <p><strong>3. 이용자의 권리와 행사 방법</strong></p>
+      <ul>
+        <li><strong>동의의 철회</strong> — 기기의 설정에서 위치 권한을 해제하면 언제든지 철회할 수 있습니다. 철회하면 러닝 기록 · 레이스 참가 등 위치 기반 기능을 이용할 수 없습니다.</li>
+        <li><strong>수집의 일시 중지</strong> — 러닝을 종료하거나 위치 권한을 해제하여 언제든지 중지를 요구할 수 있습니다.</li>
+        <li><strong>열람 · 고지 요구</strong> — 본인의 개인위치정보와 그 이용 · 제공 사실 확인자료의 열람 또는 고지를 요구할 수 있습니다.</li>
+        <li><strong>오류의 정정</strong> — 개인위치정보가 사실과 다른 경우 정정을 요구할 수 있습니다.</li>
+        <li><strong>행사 방법</strong> — 앱의 설정 화면에서 직접 처리하거나, 0502-1935-8563 또는 5618563@naver.com으로 요청할 수 있습니다. 회사는 정당한 요구를 지체 없이 처리합니다.</li>
+      </ul>
+      <p>
+        만 14세 미만 아동은 서비스에 가입할 수 없으므로, 회사는 아동의 개인위치정보를 수집하지 않습니다.
+      </p>
+
+      <p><strong>4. 이용 · 제공 사실 확인자료의 보유</strong></p>
+      <p>
+        회사는 같은 법 제16조에 따라 개인위치정보의 이용 · 제공 사실 확인자료를 자동으로 기록 · 보존하며,
+        그 자료를 6개월 이상 보관합니다.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        이 문서는 RUNZ 앱의 실제 동작을 코드 수준에서 확인해 작성한 <strong>초안</strong>입니다.
+        특히 제6조(안전)와 제13조(책임 제한)는 사고 발생 시 실제로 다투어지는 조항이므로,
+        법률 검토를 받기 전에 앱에 연결하지 마십시오.
+      </p>
+      <p>원본 파일: <code>docs/legal/terms-of-service.html</code> · 최종 수정 2026-09-07</p>
+    </footer>
+  </main>
+</div>
